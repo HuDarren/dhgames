@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {fetchItems} from '../store/products'
+import {fetchItems, fetchOneItem} from '../../store/products'
+import AllProducts from './allProducts'
+import SingleProduct from './singleProduct'
 
 export class Products extends Component {
   // constructor(props){
@@ -13,15 +15,19 @@ export class Products extends Component {
   }
 
   render() {
-    // const products = this.props
-    console.log('props', this.props)
+    const products = this.props.products
+    console.log('props', products)
 
-    return <div>Hellooooo</div>
+    return (
+      <div>
+        <AllProducts product={products} />
+      </div>
+    )
   }
 }
 
 const mapState = state => ({
-  products: state.products.items
+  products: state.products
 })
 
 const mapDispatch = dispatch => ({
