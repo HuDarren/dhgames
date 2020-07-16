@@ -1,7 +1,13 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Products, ProductPhotos} = require('../server/db/models')
+const {
+  User,
+  Products,
+  ProductPhotos,
+  OrderProduct,
+  Orders
+} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -50,6 +56,23 @@ async function seed() {
       id: 2,
       path:
         'https://upload.wikimedia.org/wikipedia/en/6/6a/Super_Mario_64_box_cover.jpg'
+    })
+  ])
+
+  const orderProduct = await Promise.all([
+    OrderProduct.create({
+      id: 123,
+      orderQuanity: 1,
+      orderId: 1254,
+      productId: 1
+    })
+  ])
+
+  const orders = await Promise.all([
+    Orders.create({
+      id: 1254,
+      status: 'complete',
+      userId: 1
     })
   ])
 
