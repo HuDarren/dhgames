@@ -1,15 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {fetchItems, fetchOneItem} from '../../store/products'
 import AllProducts from './allProducts'
-import SingleProduct from './singleProduct'
+// import SingleProduct from './singleProduct'
 
 export class Products extends Component {
-  // constructor(props){
-  //   super(props)
-  // }
-
   componentDidMount() {
     this.props.fetchItems()
   }
@@ -35,3 +31,5 @@ const mapDispatch = dispatch => ({
 })
 
 export default connect(mapState, mapDispatch)(Products)
+
+// product main page

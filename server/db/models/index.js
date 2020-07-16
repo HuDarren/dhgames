@@ -20,16 +20,26 @@ const Addresses = require('./addresses')
  * instead of: const User = require('../db/models/user')
  */
 
-User.belongsTo(Addresses)
-User.belongsTo(Orders)
-Orders.belongsTo(OrderProduct)
-Products.belongsTo(OrderProduct)
-Products.belongsTo(ProductPhotos)
+User.hasOne(Addresses)
+User.hasMany(Orders)
+Addresses.belongsTo(User)
+
+Orders.belongsTo(User)
+
+Orders.hasMany(OrderProduct)
+OrderProduct.belongsTo(Orders)
+
+OrderProduct.belongsTo(Products)
+
+Products.hasMany(OrderProduct)
+Products.hasMany(ProductPhotos)
+ProductPhotos.belongsTo(Products)
 
 module.exports = {
   User,
   OrderProduct,
   Orders,
   ProductPhotos,
-  Products
+  Products,
+  Addresses
 }

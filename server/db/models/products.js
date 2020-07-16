@@ -19,6 +19,13 @@ const Products = db.define('products', {
   description: {
     type: Sequelize.TEXT
   },
+  photo: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
   stock: {
     type: Sequelize.INTEGER,
     allowNull: false,

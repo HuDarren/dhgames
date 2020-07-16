@@ -1,14 +1,19 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Products} = require('../server/db/models')
+const {User, Products, ProductPhotos} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
   const users = await Promise.all([
-    // User.create({email: 'cody@email.com', password: '123'}),
+    User.create({
+      email: 'cody@email.com',
+      password: '123',
+      firstName: 'bob',
+      lastName: 'doe'
+    })
     // User.create({email: 'murphy@email.com', password: '123'}),
   ])
 
@@ -17,6 +22,8 @@ async function seed() {
       name: 'FF7',
       price: 12.0,
       description: 'great game',
+      photo:
+        'https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg',
       stock: 12,
       catagory: 'games',
       condition: 'new'
@@ -25,9 +32,24 @@ async function seed() {
       name: 'Mario',
       price: 22.0,
       description: 'good game',
+      photo:
+        'https://upload.wikimedia.org/wikipedia/en/6/6a/Super_Mario_64_box_cover.jpg',
       stock: 14,
       catagory: 'games',
       condition: 'old'
+    })
+  ])
+
+  const productPhotos = await Promise.all([
+    ProductPhotos.create({
+      id: 1,
+      path:
+        'https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg'
+    }),
+    ProductPhotos.create({
+      id: 2,
+      path:
+        'https://upload.wikimedia.org/wikipedia/en/6/6a/Super_Mario_64_box_cover.jpg'
     })
   ])
 

@@ -26,3 +26,5 @@ const mapDispatch = dispatch => ({
 })
 
 export default connect(mapState, mapDispatch)(singleProduct)
+
+// single view for each item for sale
