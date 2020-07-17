@@ -13,16 +13,12 @@ module.exports = router
 
 router.get('/:userId', async (req, res, next) => {
   try {
-    const cartItems = await User.findByPk(req.params.userId, {
+    const cartItems = await Orders.findAll({
       where: {
+        status: 'incomplete',
         userId: req.params.userId
       },
-      include: [
-        {model: Orders},
-        {model: OrderProduct},
-        {model: Products},
-        {model: ProductPhotos}
-      ]
+      include: [{model: OrderProduct, include: [{model: Products}]}]
     })
     res.json(cartItems)
   } catch (error) {

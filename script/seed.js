@@ -59,20 +59,20 @@ async function seed() {
     })
   ])
 
-  const orderProduct = await Promise.all([
-    OrderProduct.create({
-      id: 123,
-      orderQuanity: 1,
-      orderId: 1254,
-      productId: 1
+  const orders = await Promise.all([
+    Orders.create({
+      id: 1,
+      status: 'complete',
+      userId: 1
     })
   ])
 
-  const orders = await Promise.all([
-    Orders.create({
-      id: 1254,
-      status: 'complete',
-      userId: 1
+  const orderProduct = await Promise.all([
+    OrderProduct.create({
+      id: 1,
+      orderQuanity: 1,
+      orderId: 1,
+      productId: 1
     })
   ])
 
