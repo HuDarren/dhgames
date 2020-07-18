@@ -7,7 +7,7 @@ const getCart = data => ({
   data
 })
 
-export const getCartThunk = userId => {
+export const fetchCart = userId => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`./api/cart/${userId}`)
