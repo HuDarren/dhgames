@@ -1,24 +1,39 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 // import {Link} from 'react-router-dom'
-import {fetchOneItem} from '../../store/products'
+import {fetchOneItem} from '../../store/singleProduct'
 
 export class singleProduct extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     isLoaded: false,
+  //   }
+  // }
+
   componentDidMount() {
     const productId = this.props.match.params.id
     this.props.fetchOneItem(productId)
+    // console.log('mount', this.state.isLoaded)
+    // if (!this.state.isLoaded) {
+    //   console.log('before', this.state.isLoaded)
+    //   window.location.reload()
+    //   this.setState({isLoaded: true})
+    //   console.log('after', this.state.isLoaded)
+    // }
   }
 
   render() {
-    const products = this.props.products
-    console.log('props', products)
+    const singleItem = this.props.singleProduct
+
+    console.log('props', singleItem)
 
     return (
       <div>
-        <img src={products.photo} />
-        <div>{products.name}</div>
-        <div>{products.price}</div>
-        <div>{products.description}</div>
+        <img src={singleItem.photo} />
+        <div>{singleItem.name}</div>
+        <div>{singleItem.price}</div>
+        <div>{singleItem.description}</div>
         <div />
       </div>
     )
@@ -26,7 +41,7 @@ export class singleProduct extends Component {
 }
 
 const mapState = state => ({
-  products: state.products
+  singleProduct: state.singleProduct
 })
 
 const mapDispatch = (dispatch, ownProps) => {

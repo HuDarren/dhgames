@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
-import {fetchItems, fetchOneItem} from '../../store/products'
+import {fetchItems} from '../../store/products'
 import AllProducts from './allProducts'
-// import SingleProduct from './singleProduct'
 
 export class Products extends Component {
   componentDidMount() {
