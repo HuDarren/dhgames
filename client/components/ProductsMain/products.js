@@ -12,7 +12,6 @@ export class Products extends Component {
 
   render() {
     const products = this.props.products
-    console.log('props', products)
 
     return (
       <div>
