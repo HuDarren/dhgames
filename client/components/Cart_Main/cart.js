@@ -10,9 +10,15 @@ export class Cart extends Component {
   }
 
   render() {
-    console.log('props', this.props)
-    console.log('state', this.state)
-    return <div>Helloo!</div>
+    const cartItems = this.props.cart
+
+    console.log('props', cartItems)
+
+    return (
+      <div>
+        <AllCart cartItems={cartItems} />
+      </div>
+    )
   }
 }
 
