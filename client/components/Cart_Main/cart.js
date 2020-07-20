@@ -24,7 +24,7 @@ const mapDispatch = (dispatch, ownProps) => {
   const id = ownProps.match.params.id
   return {
     fetchCart: () => {
-      fetchCart(id)
+      dispatch(fetchCart(id))
     }
   }
 }
