@@ -19,3 +19,87 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.nav-group {
+  display: flex;
+  width: 100px;
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-list2 {
+  display: flex;
+}
+
+.nav-image {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 30px;
+}
+
+.home-container {
+  position: relative;
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 40%;
+  left: 30%;
+}
+
+.home-text1 {
+  color: white;
+  font-size: 250%;
+  font-family: 'Cooper BT', serif;
+  font-weight: 900;
+  line-height: 1.2;
+  word-wrap: break-word;
+  font-style: normal;
+  margin: 0 0 17.5px;
+}
+
+.home-text2 {
+  color: white;
+  font-size: 150%;
+  font-family: 'Cooper BT', serif;
+  font-weight: 900;
+  line-height: 1.2;
+  word-wrap: break-word;
+  font-style: normal;
+  margin: 0 0 17.5px;
+}
+
+.home-text3 {
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 15px;
+  background-color: #e8262a;
+  color: #fff;
+  font-family: 'Cooper BT', serif;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: normal;
+  font-size: 14px;
+}
+
+.home-cover {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
