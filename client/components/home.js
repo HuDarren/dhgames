@@ -26,6 +26,10 @@ export default class home extends Component {
             />
           </div>
         </div>
+        <div>
+          <div>Staff Picks</div>
+        </div>
+        <div>Under Construction</div>
       </div>
     )
   }
