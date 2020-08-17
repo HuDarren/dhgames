@@ -5,17 +5,19 @@ import AllCart from './allCart'
 
 export class Cart extends Component {
   componentDidMount() {
-    const id = this.props.match.params.id
-    this.props.fetchCart(id)
+    // const id = this.props.match.params.id
+    // this.props.fetchCart(id)
   }
 
   render() {
     const cartItems = this.props.cart
 
     console.log('props', cartItems)
+    console.log(this.props)
 
     return (
       <div>
+        Hello
         <AllCart cartItems={cartItems} />
       </div>
     )

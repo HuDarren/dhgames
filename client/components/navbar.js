@@ -12,10 +12,38 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
-            <Link to="/">Home</Link>
-            <a href="#" onClick={handleClick}>
-              Logout
-            </a>
+            <div className=" nav-group">
+              {/* The navbar will show these links before you log in */}
+
+              <div className="nav-list">
+                <Link to="/">Home</Link>
+                <Link to="/products">Shop</Link>
+                <Link to="/mail-order">Mail Order</Link>
+                <a href="#" onClick={handleClick}>
+                  Logout
+                </a>
+              </div>
+              <div className="nav-list2">
+                <Link to="/search">
+                  <img
+                    className="nav-image"
+                    src="https://res.cloudinary.com/dsi0jbonx/image/upload/v1595452968/magify_glass_cy6vjq.png"
+                  />
+                </Link>
+                {/* <Link to="/login">
+                  <img
+                    className="nav-image"
+                    src="https://res.cloudinary.com/dsi0jbonx/image/upload/v1595451700/profile_fysysh.png"
+                  />
+                </Link> */}
+                <Link to="/cart">
+                  <img
+                    className="nav-image"
+                    src="https://res.cloudinary.com/dsi0jbonx/image/upload/v1595452715/bag_k31ojv.png"
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         ) : (
           <div className=" nav-group">
@@ -39,7 +67,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
                   src="https://res.cloudinary.com/dsi0jbonx/image/upload/v1595451700/profile_fysysh.png"
                 />
               </Link>
-              <Link to="/cart/:id">
+              <Link to="/cart">
                 <img
                   className="nav-image"
                   src="https://res.cloudinary.com/dsi0jbonx/image/upload/v1595452715/bag_k31ojv.png"

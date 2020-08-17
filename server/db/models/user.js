@@ -10,13 +10,13 @@ const User = db.define('users', {
   },
   firstName: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
+    // unique: true,
+    defaultValue: 'none'
   },
   lastName: {
     type: Sequelize.STRING,
-    unique: true,
-    allowNull: false
+    // unique: true,
+    defaultValue: 'none'
   },
 
   password: {
