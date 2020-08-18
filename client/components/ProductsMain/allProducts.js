@@ -18,6 +18,7 @@ export default function allProducts(props) {
           <div>${oneProduct.price}</div>
           <div>{oneProduct.description}</div>
           <div>{oneProduct.condition}</div>
+          <button>Add</button>
           <div />
           <div />
           <div />

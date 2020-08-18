@@ -4,23 +4,9 @@ import {connect} from 'react-redux'
 import {fetchOneItem} from '../../store/singleProduct'
 
 export class singleProduct extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     isLoaded: false,
-  //   }
-  // }
-
   componentDidMount() {
     const productId = this.props.match.params.id
     this.props.fetchOneItem(productId)
-    // console.log('mount', this.state.isLoaded)
-    // if (!this.state.isLoaded) {
-    //   console.log('before', this.state.isLoaded)
-    //   window.location.reload()
-    //   this.setState({isLoaded: true})
-    //   console.log('after', this.state.isLoaded)
-    // }
   }
 
   render() {
@@ -34,6 +20,7 @@ export class singleProduct extends Component {
         <div>{singleItem.name}</div>
         <div>{singleItem.price}</div>
         <div>{singleItem.description}</div>
+        <button>Add</button>
         <div />
       </div>
     )

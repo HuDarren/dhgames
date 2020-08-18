@@ -25,3 +25,52 @@ router.get('/:userId', async (req, res, next) => {
     console.log('error')
   }
 })
+
+// add item to cart based on user id
+
+router.post('/add/:item', async (req, res, next) => {
+  try {
+    // const {productId, orderId, orderQuantity} = req.body
+    const newItem = await OrderProduct.create({
+      orderQuantity: 1,
+      orderId: req.order.id,
+      productId: req.params.item
+    })
+    console.log(newItem.id)
+    console.log(req.params.item)
+    const order = await Orders.findByPk(newItem.id, {
+      include: [
+        {
+          model: Orders
+        }
+      ]
+    })
+    res.json(order)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/new/:item/:order', async (req, res, next) => {
+  try {
+    // const {productId, orderId, orderQuantity} = req.body
+    const newItem = await OrderProduct.create({
+      orderQuantity: 1,
+      orderId: req.params.order,
+      productId: req.params.item
+    })
+
+    const order = await Orders.findByPk(newItem.id, {
+      include: [
+        {
+          model: Orders
+        }
+      ]
+    })
+    res.json(order)
+  } catch (error) {
+    next(error)
+  }
+})
+
+// delete item in cart based on user id
