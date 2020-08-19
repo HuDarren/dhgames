@@ -1,3 +1,5 @@
+const db = require('../db/models')
+
 const router = require('express').Router()
 const {
   Products,
@@ -10,6 +12,18 @@ const {
 module.exports = router
 
 // get all items in user cart that are not purchased
+
+// router.get('/this', async (req, res, next) => {
+//   try {
+//     const cartItems = await db.sequelize.query("SELECT * FROM 'user'", {
+//       // model: db.User,
+//       type: db.sequelize.QueryTypes.SELECT,
+//     })
+//     res.json(cartItems)
+//   } catch (error) {
+//     console.log('error')
+//   }
+// })
 
 router.get('/:userId', async (req, res, next) => {
   try {
@@ -51,23 +65,25 @@ router.post('/add/:item', async (req, res, next) => {
   }
 })
 
-router.post('/new/:item/:order', async (req, res, next) => {
+router.post('/new/:item/', async (req, res, next) => {
   try {
     // const {productId, orderId, orderQuantity} = req.body
     const newItem = await OrderProduct.create({
       orderQuantity: 1,
-      orderId: req.params.order,
-      productId: req.params.item
+      productId: req.params.item,
+      // userId: 1,
+      userId: req.user.id
     })
 
-    const order = await Orders.findByPk(newItem.id, {
-      include: [
-        {
-          model: Orders
-        }
-      ]
-    })
-    res.json(order)
+    // const order = await OrderProduct.findByPk(newItem.id, {
+    //   include: [
+    //     {
+    //       model: User,
+    //     },
+    //   ],
+    // })
+
+    res.json(newItem)
   } catch (error) {
     next(error)
   }

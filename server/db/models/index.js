@@ -27,9 +27,11 @@ Addresses.belongsTo(User)
 Orders.belongsTo(User)
 
 Orders.hasMany(OrderProduct)
-OrderProduct.belongsTo(Orders)
+// OrderProduct.belongsTo(Orders)
 
 OrderProduct.belongsTo(Products)
+OrderProduct.belongsTo(User)
+User.hasMany(OrderProduct)
 
 Products.hasMany(OrderProduct)
 Products.hasMany(ProductPhotos)
